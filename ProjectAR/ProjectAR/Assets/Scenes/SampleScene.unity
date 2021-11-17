@@ -517,6 +517,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &732825402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5493000332791969110, guid: 95af832c625d7494aa339237ddaff994,
+    type: 3}
+  m_PrefabInstance: {fileID: 1871802655200844832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &732825405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732825402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa8f350705d99341b51e4c6e5719c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &732825406
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732825402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.63
+  m_Height: 1.29
+  m_Direction: 0
+  m_Center: {x: -0.73, y: -0.000000059604645, z: 0}
 --- !u!1 &756325236
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1398855848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1409676762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,7 +1070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 9089833041873739486}
-  material: {fileID: 0}
 --- !u!136 &1961005095181245108
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1072,7 +1103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 9089833041873739486}
-  material: {fileID: 0}
 --- !u!136 &6705548538214467512
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1118,7 +1148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 9089833041873739486}
-  material: {fileID: 2100000, guid: a01ba4c0ca959754ea498edbabbc697a, type: 2}
 --- !u!136 &8723901681019369973
 CapsuleCollider:
   m_ObjectHideFlags: 0

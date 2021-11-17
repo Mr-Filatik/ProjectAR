@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class ClickScript : MonoBehaviour
 {
+    #region Serialize Variables
+
     [SerializeField] private VostokController vostokController = null;
+
+    #endregion
+
+    #region Private Variables
 
     private bool isWork = false;
     private float currentTime = 0f;
@@ -12,6 +18,29 @@ public class ClickScript : MonoBehaviour
     private float cooldownTime = 1f;
     private Color defaultColor = Color.black;
     private Color currentColor = new Color32(135, 126, 68, 255);
+
+    #endregion
+
+    #region Public Methods
+
+    public void Active(bool state)
+    {
+        if (state)
+        {
+            isWork = true;
+            currentTime = 0f;
+            gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", currentColor);
+        }
+        else
+        {
+            isWork = false;
+            gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
+        }
+    }
+
+    #endregion
+
+    #region Private Methods
 
     private void Update()
     {
@@ -35,7 +64,6 @@ public class ClickScript : MonoBehaviour
                 if (vector)
                 {
                     currentTime += Time.deltaTime;
-                    //gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white, Color.green, currentTime);
                 }
                 else
                 {
@@ -49,25 +77,8 @@ public class ClickScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        vostokController.ClickElement(this); //!!! передача скрипта
+        vostokController.ClickElement(this);
     }
 
-    public void Active(bool state)
-    {
-        if (state)
-        {
-            isWork = true;
-            currentTime = 0f;
-
-            //gameObject.GetComponent<Renderer>().material.color = currentColor;
-            gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", currentColor);
-
-            //gameObject.GetComponent<Renderer>().material = material;
-        }
-        else
-        {
-            isWork = false;
-            gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
-        }
-    }
+    #endregion
 }

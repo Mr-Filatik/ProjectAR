@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InitScript : MonoBehaviour
 {
+    #region Private Methods
+
     private void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        //Set in build settings in player settings in player in resolution and presentation in default orientation
-        //Screen.orientation = ScreenOrientation.Portrait;
         Application.targetFrameRate = 60;
-
     }
+
+    #endregion
 }

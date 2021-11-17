@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class VostokController : MonoBehaviour
 {
-    ClickScript activeElenent = null;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Private Variables
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private ClickScript activeElenent = null;
+
+    #endregion
+
+    #region Public Methods
 
     public void ClickElement(ClickScript clickScript)
     {
@@ -34,4 +29,6 @@ public class VostokController : MonoBehaviour
             activeElenent = clickScript;
         }
     }
+
+    #endregion
 }
