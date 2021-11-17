@@ -26,8 +26,12 @@ public class VostokController : MonoBehaviour
         }
         else
         {
+            if (activeElenent != null)
+            {
+                activeElenent.Active(false);
+            }
             clickScript.Active(true);
-            activeElenent = null;
+            activeElenent = clickScript;
         }
     }
 }
