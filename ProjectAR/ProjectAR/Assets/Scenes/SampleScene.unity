@@ -1038,6 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 9089833041873739486}
+  material: {fileID: 0}
 --- !u!136 &1961005095181245108
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1071,6 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 9089833041873739486}
+  material: {fileID: 0}
 --- !u!136 &6705548538214467512
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1116,6 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 9089833041873739486}
+  material: {fileID: 2100000, guid: a01ba4c0ca959754ea498edbabbc697a, type: 2}
 --- !u!136 &8723901681019369973
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1238,7 +1241,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a01ba4c0ca959754ea498edbabbc697a, type: 2}
+      objectReference: {fileID: 2100000, guid: 62260c3700cb9124fb394bf7b8c9b5cd, type: 2}
     - target: {fileID: 8800236924358625101, guid: 4f6fd651149ce6c4aac0908af6d6d2e3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

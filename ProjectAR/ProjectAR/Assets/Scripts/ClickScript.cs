@@ -6,26 +6,30 @@ public class ClickScript : MonoBehaviour
 {
     [SerializeField] private VostokController vostokController = null;
 
+    [SerializeField] private Material material = null;
+
     private bool isWork = false;
     private float currentTime = 0f;
     private bool vector = true;
     private float cooldownTime = 1f;
-    private Color color = new Color(135 / 256, 126 / 256, 68 / 256, 1);
+    private Color defaultColor = Color.white;
+    private Color currentColor = new Color((float)135 / 256, (float)126 / 256, (float)68 / 256);
 
     private void Update()
     {
         if (isWork)
         {
-            if (currentTime >= cooldownTime)
+            if (currentTime > cooldownTime || currentTime < 0)
             {
-                currentTime = 0f;
                 if (vector)
                 {
                     vector = false;
+                    currentTime = 1f;
                 }
                 else
                 {
                     vector = true;
+                    currentTime = 0f;
                 }
             }
             else
@@ -33,13 +37,14 @@ public class ClickScript : MonoBehaviour
                 if (vector)
                 {
                     currentTime += Time.deltaTime;
-                    gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.black, color, currentTime);
+                    //gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white, Color.green, currentTime);
                 }
                 else
                 {
                     currentTime -= Time.deltaTime;
-                    gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(color, Color.black, currentTime);
+                    
                 }
+                gameObject.GetComponent<Renderer>().material.color = Color.Lerp(defaultColor, currentColor, currentTime);
             }
         }
     }
@@ -53,13 +58,17 @@ public class ClickScript : MonoBehaviour
     {
         if (state)
         {
-            isWork = true;
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+            //isWork = true;
+            //currentTime = 0f;
+            
+            //gameObject.GetComponent<Renderer>().material.color = currentColor;
+
+            //gameObject.GetComponent<Renderer>().material = material;
         }
         else
         {
             isWork = false;
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.black;
+            gameObject.GetComponent<Renderer>().material.color = defaultColor;
         }
     }
 }
