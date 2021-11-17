@@ -6,14 +6,12 @@ public class ClickScript : MonoBehaviour
 {
     [SerializeField] private VostokController vostokController = null;
 
-    [SerializeField] private Material material = null;
-
     private bool isWork = false;
     private float currentTime = 0f;
     private bool vector = true;
     private float cooldownTime = 1f;
-    private Color defaultColor = Color.white;
-    private Color currentColor = new Color((float)135 / 256, (float)126 / 256, (float)68 / 256);
+    private Color defaultColor = Color.black;
+    private Color currentColor = new Color32(135, 126, 68, 255);
 
     private void Update()
     {
@@ -44,7 +42,7 @@ public class ClickScript : MonoBehaviour
                     currentTime -= Time.deltaTime;
                     
                 }
-                gameObject.GetComponent<Renderer>().material.color = Color.Lerp(defaultColor, currentColor, currentTime);
+                gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(defaultColor, currentColor, currentTime));
             }
         }
     }
@@ -58,17 +56,18 @@ public class ClickScript : MonoBehaviour
     {
         if (state)
         {
-            //isWork = true;
-            //currentTime = 0f;
-            
+            isWork = true;
+            currentTime = 0f;
+
             //gameObject.GetComponent<Renderer>().material.color = currentColor;
+            gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", currentColor);
 
             //gameObject.GetComponent<Renderer>().material = material;
         }
         else
         {
             isWork = false;
-            gameObject.GetComponent<Renderer>().material.color = defaultColor;
+            gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
         }
     }
 }
