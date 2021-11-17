@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.easyar.sense": {
-      "version": "file:G:/Unity/Projects/ProjectAR/EasyARSenseUnityPlugin_4.4.0+2424.469da7da/com.easyar.sense-4.4.0+2424.469da7da.tgz",
+      "version": "file:com.easyar.sense-4.4.0+2424.469da7da.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {
