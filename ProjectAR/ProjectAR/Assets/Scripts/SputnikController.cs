@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SputnikController : MonoBehaviour
 {
+    #region Serialize Variables
+
+    [SerializeField] private GameObject sputnik = null;
+
+    #endregion
+
     #region Private Variables
 
     private bool isWork = false;
@@ -28,15 +34,23 @@ public class SputnikController : MonoBehaviour
                 angle = 3.145f;
                 isWork = false;
                 transform.localPosition = startPosition;
-                transform.localEulerAngles = new Vector3(-90, 0, 0);
-                transform.localScale = new Vector3(0.33333f, 0.33333f, 0.33333f); //mb change
+                transform.localEulerAngles = new Vector3(0, 0, 0);
+                transform.localScale = new Vector3(1f, 1f, 1f); //mb change
+                sputnik.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
             }
             else
             {
                 angle += Time.deltaTime;
                 transform.localPosition = new Vector3(Mathf.Cos(angle * speed) * radius + startPosition.x, startPosition.y, -Mathf.Sin(angle * speed) * radius + startPosition.z + radius);
-                transform.localScale = new Vector3((0.5f + (Mathf.Sin(angle * speed) + 1) / 4 )/ 3, (0.5f + (Mathf.Sin(angle * speed) + 1) / 4) / 3, (0.5f + (Mathf.Sin(angle * speed) + 1) / 4) / 3);
-                //transform.localEulerAngles = //change
+                transform.localScale = new Vector3((0.5f + (Mathf.Sin(angle * speed) + 1) / 4 ), (0.5f + (Mathf.Sin(angle * speed) + 1) / 4), (0.5f + (Mathf.Sin(angle * speed) + 1) / 4));
+                if (angle > 9.435f)
+                {
+                    sputnik.transform.localEulerAngles = new Vector3(0, ((angle - 15.725f) / 3.145f) * 90, 0);
+                }
+                else
+                {
+                    sputnik.transform.localEulerAngles = new Vector3(0, ((angle - 15.725f) / 3.145f) * 90, 0);
+                }
             }
         }
     }
