@@ -13,9 +13,9 @@ public class SputnikController : MonoBehaviour
     #region Private Variables
 
     private bool isWork = false;
-    private float currentTime = 0f; //change
-    private bool vector = true; //change
-    private float cooldownTime = 1f; //change
+    //private float currentTime = 0f; //change
+    //private bool vector = true; //change
+    //private float cooldownTime = 1f; //change
     private Vector3 startPosition = Vector3.zero;
     private float speed = 0.5f;
     private float angle = 3.145f;
