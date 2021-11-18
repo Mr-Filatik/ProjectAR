@@ -12,7 +12,7 @@ public class SputnikController : MonoBehaviour
     private float cooldownTime = 1f; //change
     private Vector3 startPosition = Vector3.zero;
     private float speed = 0.5f;
-    private float angle = 3.3f;
+    private float angle = 3.145f;
     private float radius = 1f;
 
     #endregion
@@ -23,9 +23,9 @@ public class SputnikController : MonoBehaviour
     {
         if (isWork)
         {
-            if (angle > 10f) //change
+            if (angle > 15.725f) //change
             {
-                angle = 3.3f;
+                angle = 3.145f;
                 isWork = false;
                 transform.localPosition = startPosition;
                 transform.localEulerAngles = new Vector3(-90, 0, 0);
@@ -33,10 +33,9 @@ public class SputnikController : MonoBehaviour
             }
             else
             {
-                Debug.Log(angle);
                 angle += Time.deltaTime;
                 transform.localPosition = new Vector3(Mathf.Cos(angle * speed) * radius + startPosition.x, startPosition.y, -Mathf.Sin(angle * speed) * radius + startPosition.z + radius);
-                transform.localScale = new Vector3((Mathf.Sin(angle * speed) + 1) / 6, (Mathf.Sin(angle * speed) + 1) / 6, (Mathf.Sin(angle * speed) + 1) / 6);        
+                transform.localScale = new Vector3((0.5f + (Mathf.Sin(angle * speed) + 1) / 4 )/ 3, (0.5f + (Mathf.Sin(angle * speed) + 1) / 4) / 3, (0.5f + (Mathf.Sin(angle * speed) + 1) / 4) / 3);
                 //transform.localEulerAngles = //change
             }
         }
