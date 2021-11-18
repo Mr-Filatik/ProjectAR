@@ -6,16 +6,15 @@ public class SputnikController : MonoBehaviour
 {
     #region Serialize Variables
 
+    [SerializeField] private Camera camera = null;
     [SerializeField] private GameObject sputnik = null;
 
     #endregion
 
     #region Private Variables
 
+    private float timeWork = 0f;
     private bool isWork = false;
-    //private float currentTime = 0f; //change
-    //private bool vector = true; //change
-    //private float cooldownTime = 1f; //change
     private Vector3 startPosition = Vector3.zero;
     private float speed = 0.5f;
     private float angle = 3.145f;
@@ -23,10 +22,40 @@ public class SputnikController : MonoBehaviour
 
     #endregion
 
+    #region Public Methods
+
+    public void Active(bool input)
+    {
+        if (input)
+        {
+            timeWork = 0f;
+        }
+        else
+        {
+            angle = 3.145f;
+            isWork = false;
+            transform.localPosition = startPosition;
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            sputnik.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
+        }
+    }
+
+    #endregion
+
     #region Private Methods
 
     private void Update()
     {
+        if (timeWork > 10f)
+        {
+            Vector3 a = camera.WorldToScreenPoint(gameObject.transform.position); 
+            Debug.Log(a.x + " " + a.y + " " + a.z);
+            a = camera.WorldToViewportPoint(gameObject.transform.position); 
+            Debug.Log(a.x + " " + a.y + " " + a.z);
+            timeWork = 0f;
+        }
+
         if (isWork)
         {
             if (angle > 15.725f) //change
@@ -52,6 +81,10 @@ public class SputnikController : MonoBehaviour
                     sputnik.transform.localEulerAngles = new Vector3(0, ((angle - 15.725f) / 3.145f) * 90, 0);
                 }
             }
+        }
+        else
+        {
+            timeWork += Time.deltaTime; //mb not
         }
     }
 

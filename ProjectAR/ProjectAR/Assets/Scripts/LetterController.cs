@@ -9,14 +9,13 @@ public class LetterController : MonoBehaviour
 
     [SerializeField] private Text textBack = null;
     [SerializeField] private Text textFront = null;
-    //[SerializeField] private Image imageBack = null;
     [SerializeField] private Image imageFront = null;
 
     #endregion
 
     #region Private Variables
 
-    private bool isWork = true;
+    private bool isWork = false;
     private float currentTime = 0f;
     private int number = 0;
     private string[] letter = new string[] { 
@@ -56,6 +55,24 @@ public class LetterController : MonoBehaviour
         "дом 4, кв. 57." };
 
     #endregion
+
+    #region Public Methods
+
+    public void Active(bool input)
+    {
+        if (input)
+        {
+            isWork = true;
+        }
+        else
+        {
+            isWork = false;
+        }
+    }
+
+    #endregion
+
+    #region Private Methods
 
     private void Update()
     {
@@ -97,9 +114,5 @@ public class LetterController : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        //isWork = true;
-        //currentTime = 0f;
-    }
+    #endregion
 }

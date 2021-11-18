@@ -6,6 +6,8 @@ public class VostokController : MonoBehaviour
 {
     #region Private Variables
 
+    private bool isWork = false;
+    private float timeWork = 0f;
     private ClickScript activeElenent = null;
 
     #endregion
@@ -27,6 +29,50 @@ public class VostokController : MonoBehaviour
             }
             clickScript.Active(true);
             activeElenent = clickScript;
+        }
+        timeWork = 0f;
+    }
+
+    public void Active(bool input)
+    {
+        if (input)
+        {
+            timeWork = 0f;
+        }
+        else
+        {
+            if (activeElenent != null)
+            {
+                activeElenent.Active(false);
+                activeElenent = null;
+            }
+        }
+    }
+
+    public void Rotate()
+    {
+        if (!isWork)
+        {
+            isWork = true;
+        }
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    private void Update()
+    {
+        if (timeWork > 10f)
+        {
+            Debug.Log("Метод вызова тача");
+            timeWork = 0f;
+        }
+        timeWork += Time.deltaTime;
+
+        if (isWork)
+        {
+            
         }
     }
 

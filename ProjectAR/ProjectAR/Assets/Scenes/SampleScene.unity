@@ -723,6 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 756325238}
   - component: {fileID: 756325237}
+  - component: {fileID: 756325239}
   m_Layer: 0
   m_Name: Image Target (0)
   m_TagString: Untagged
@@ -770,6 +771,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756325239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756325236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de93ef3485a89a24a9dece574408ab31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vostok: {fileID: 2807589304029523377}
+  sputnik: {fileID: 0}
+  letter: {fileID: 0}
 --- !u!1 &828257448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa8f350705d99341b51e4c6e5719c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 963194227}
   sputnik: {fileID: 165585583}
 --- !u!136 &1125577133
 CapsuleCollider:
@@ -1198,6 +1215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398855849}
   - component: {fileID: 1398855848}
+  - component: {fileID: 1398855850}
   m_Layer: 0
   m_Name: Image Target (2)
   m_TagString: Untagged
@@ -1245,6 +1263,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1398855850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398855847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de93ef3485a89a24a9dece574408ab31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vostok: {fileID: 0}
+  sputnik: {fileID: 0}
+  letter: {fileID: 521008216}
 --- !u!1 &1409676761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409676763}
   - component: {fileID: 1409676762}
+  - component: {fileID: 1409676764}
   m_Layer: 0
   m_Name: Image Target (1)
   m_TagString: Untagged
@@ -1303,6 +1337,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1409676764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409676761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de93ef3485a89a24a9dece574408ab31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vostok: {fileID: 0}
+  sputnik: {fileID: 1125577132}
+  letter: {fileID: 0}
 --- !u!1 &1577749883
 GameObject:
   m_ObjectHideFlags: 0
