@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class VostokController : MonoBehaviour
 {
+    [SerializeField] private CanvasController canvas = null;
+    [SerializeField] private Camera camera = null;
+    [SerializeField] private GameObject step1 = null;
+    [SerializeField] private GameObject step2 = null;
+    [SerializeField] private GameObject step3 = null; 
+
     #region Private Variables
 
     private bool isWork = false;
     private float timeWork = 0f;
+    private float angle = 0f;
+    private float speed = 50f;
     private ClickScript activeElenent = null;
 
     #endregion
@@ -63,16 +71,36 @@ public class VostokController : MonoBehaviour
 
     private void Update()
     {
-        if (timeWork > 10f)
-        {
-            Debug.Log("Метод вызова тача");
-            timeWork = 0f;
-        }
-        timeWork += Time.deltaTime;
-
         if (isWork)
         {
-            
+            if (angle >= 360) //change
+            {
+                angle = 0f;
+                isWork = false;
+                transform.localEulerAngles = new Vector3(-90, 0, 0);
+            }
+            else
+            {
+                angle += Time.deltaTime * speed;
+                transform.localEulerAngles = new Vector3(-90, angle, 0);
+            }
+            timeWork = 0f;
+        }
+        else
+        {
+            if (timeWork > 10f)
+            {
+                if (timeWork < 12f)
+                {
+                    //camera.WorldToViewportPoint(gameObject.transform.position);
+                    canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step1.transform.position.x - 0.07f, step1.transform.position.y - 0.04f, step1.transform.position.z - 0.1f))); //hz
+                }
+                else
+                {
+                    timeWork = 0f;
+                }
+            }
+            timeWork += Time.deltaTime;
         }
     }
 

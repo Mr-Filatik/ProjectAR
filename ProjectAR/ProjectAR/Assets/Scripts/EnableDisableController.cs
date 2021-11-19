@@ -9,6 +9,7 @@ public class EnableDisableController : MonoBehaviour
     [SerializeField] private VostokController vostok = null;
     [SerializeField] private SputnikController sputnik = null;
     [SerializeField] private LetterController letter = null;
+    [SerializeField] private CanvasController canvas = null;
 
     #endregion
 
@@ -28,6 +29,10 @@ public class EnableDisableController : MonoBehaviour
         {
             letter.Active(true);
         }
+        if (canvas != null)
+        {
+            canvas.Active(true);
+        }
     }
 
     private void OnDisable()
@@ -43,6 +48,10 @@ public class EnableDisableController : MonoBehaviour
         if (letter != null)
         {
             letter.Active(false);
+        }
+        if (canvas != null)
+        {
+            canvas.Active(false);
         }
     }
 

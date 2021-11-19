@@ -7,7 +7,9 @@ public class SputnikController : MonoBehaviour
     #region Serialize Variables
 
     [SerializeField] private Camera camera = null;
+    [SerializeField] private CanvasController canvas = null;
     [SerializeField] private GameObject sputnik = null;
+    [SerializeField] private GameObject tap = null;
 
     #endregion
 
@@ -47,15 +49,6 @@ public class SputnikController : MonoBehaviour
 
     private void Update()
     {
-        if (timeWork > 10f)
-        {
-            Vector3 a = camera.WorldToScreenPoint(gameObject.transform.position); 
-            Debug.Log(a.x + " " + a.y + " " + a.z);
-            a = camera.WorldToViewportPoint(gameObject.transform.position); 
-            Debug.Log(a.x + " " + a.y + " " + a.z);
-            timeWork = 0f;
-        }
-
         if (isWork)
         {
             if (angle > 15.725f) //change
@@ -81,10 +74,23 @@ public class SputnikController : MonoBehaviour
                     sputnik.transform.localEulerAngles = new Vector3(0, ((angle - 15.725f) / 3.145f) * 90, 0);
                 }
             }
+            timeWork = 0f;
         }
         else
         {
-            timeWork += Time.deltaTime; //mb not
+            if (timeWork > 10f)
+            {
+                if (timeWork < 12f) 
+                {
+                    //camera.WorldToViewportPoint(gameObject.transform.position);
+                    canvas.TapWork(camera.WorldToScreenPoint(new Vector3(gameObject.transform.position.x - 0.07f, gameObject.transform.position.y - 0.04f, gameObject.transform.position.z - 0.1f))); //hz
+                }
+                else
+                {
+                    timeWork = 0f;
+                }
+            }
+            timeWork += Time.deltaTime;
         }
     }
 
