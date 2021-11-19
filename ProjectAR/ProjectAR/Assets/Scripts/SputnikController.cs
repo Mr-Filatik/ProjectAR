@@ -79,9 +79,11 @@ public class SputnikController : MonoBehaviour
         }
         else
         {
-            if (timeWork > 10f)
+            if (timeWork > 7f)
             {
-                if (timeWork < 12f)
+                canvas.TapWorkStart();
+                timeWork = 0f;
+                /*if (timeWork < 12f)
                 {
                     canvas.TapWorkStart();
                 }
@@ -89,7 +91,7 @@ public class SputnikController : MonoBehaviour
                 {
                     canvas.TapWorkEnd();
                     timeWork = 0f;
-                }
+                }*/
             }
             timeWork += Time.deltaTime;
         }

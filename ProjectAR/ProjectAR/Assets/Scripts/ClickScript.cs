@@ -7,6 +7,7 @@ public class ClickScript : MonoBehaviour
     #region Serialize Variables
 
     [SerializeField] private VostokController vostokController = null;
+    [SerializeField] private GameObject info = null;
 
     #endregion
 
@@ -30,17 +31,24 @@ public class ClickScript : MonoBehaviour
             isWork = true;
             currentTime = 0f;
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", currentColor);
+            info.SetActive(true);
         }
         else
         {
             isWork = false;
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
+            info.SetActive(false);
         }
     }
 
     #endregion
 
     #region Private Methods
+
+    private void Awake()
+    {
+        info.SetActive(false);
+    }
 
     private void Update()
     {
