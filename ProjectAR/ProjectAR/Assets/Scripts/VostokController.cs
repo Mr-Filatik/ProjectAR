@@ -6,9 +6,9 @@ public class VostokController : MonoBehaviour
 {
     [SerializeField] private CanvasController canvas = null;
     [SerializeField] private Camera camera = null;
-    [SerializeField] private GameObject step1 = null;
-    [SerializeField] private GameObject step2 = null;
-    [SerializeField] private GameObject step3 = null; 
+    [SerializeField] private TapCanvasController canvas1 = null;
+    [SerializeField] private TapCanvasController canvas2 = null;
+    [SerializeField] private TapCanvasController canvas3 = null;
 
     #region Private Variables
 
@@ -54,6 +54,9 @@ public class VostokController : MonoBehaviour
                 activeElenent.Active(false);
                 activeElenent = null;
             }
+            canvas1.TapWorkEnd();
+            canvas2.TapWorkEnd();
+            canvas3.TapWorkEnd();
         }
     }
 
@@ -92,19 +95,25 @@ public class VostokController : MonoBehaviour
             {
                 if (timeWork < 12f)
                 {
+                    canvas1.TapWorkStart();
                     //camera.WorldToViewportPoint(gameObject.transform.position);
                     //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step1.transform.position.x - 0.07f, step1.transform.position.y - 0.04f, step1.transform.position.z - 0.1f))); //hz
                 }
                 else if (timeWork < 14f)
                 {
+                    canvas1.TapWorkEnd();
+                    canvas2.TapWorkStart();
                     //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step2.transform.position.x - 0.07f, step2.transform.position.y - 0.04f, step2.transform.position.z - 0.1f))); //hz
                 }
                 else if (timeWork < 16f)
                 {
+                    canvas2.TapWorkEnd();
+                    canvas3.TapWorkStart();
                     //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step3.transform.position.x - 0.07f, step3.transform.position.y - 0.04f, step3.transform.position.z - 0.1f))); //hz
                 }
                 else
                 {
+                    canvas3.TapWorkEnd();
                     //canvas.TapWorkEnd();
                     timeWork = 0f;
                 }

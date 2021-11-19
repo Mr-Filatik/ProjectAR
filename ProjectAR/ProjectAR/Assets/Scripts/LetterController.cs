@@ -62,7 +62,10 @@ public class LetterController : MonoBehaviour
     {
         if (input)
         {
-            isWork = true;
+            if (number != letter.GetLength(0) - 1)
+            {
+                isWork = true;
+            }
         }
         else
         {
@@ -102,7 +105,7 @@ public class LetterController : MonoBehaviour
                 }
                 else
                 {
-                    number = 0;
+                    //number = 0;
                     isWork = false;
                 }
             }

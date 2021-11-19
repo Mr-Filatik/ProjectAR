@@ -40,6 +40,7 @@ public class SputnikController : MonoBehaviour
             transform.localEulerAngles = new Vector3(0, 0, 0);
             transform.localScale = new Vector3(1f, 1f, 1f);
             sputnik.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
+            canvas.TapWorkEnd();
         }
     }
 
@@ -51,13 +52,13 @@ public class SputnikController : MonoBehaviour
     {
         if (isWork)
         {
-            if (angle > 15.725f) //change
+            if (angle > 15.725f)
             {
                 angle = 3.145f;
                 isWork = false;
                 transform.localPosition = startPosition;
                 transform.localEulerAngles = new Vector3(0, 0, 0);
-                transform.localScale = new Vector3(1f, 1f, 1f); //mb change
+                transform.localScale = new Vector3(1f, 1f, 1f);
                 sputnik.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
             }
             else
@@ -80,11 +81,9 @@ public class SputnikController : MonoBehaviour
         {
             if (timeWork > 10f)
             {
-                if (timeWork < 12f) 
+                if (timeWork < 12f)
                 {
-                    //camera.WorldToViewportPoint(gameObject.transform.position);
                     canvas.TapWorkStart();
-                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(gameObject.transform.position.x - 0.07f, gameObject.transform.position.y - 0.04f, gameObject.transform.position.z - 0.1f))); //hz
                 }
                 else
                 {
@@ -100,6 +99,7 @@ public class SputnikController : MonoBehaviour
     {
         if (!isWork)
         {
+            canvas.TapWorkEnd();
             isWork = true;
             startPosition = gameObject.transform.localPosition;
         }
