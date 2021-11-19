@@ -7,7 +7,7 @@ public class SputnikController : MonoBehaviour
     #region Serialize Variables
 
     [SerializeField] private Camera camera = null;
-    [SerializeField] private CanvasController canvas = null;
+    [SerializeField] private TapCanvasController canvas = null;
     [SerializeField] private GameObject sputnik = null;
     [SerializeField] private GameObject tap = null;
 
@@ -83,10 +83,12 @@ public class SputnikController : MonoBehaviour
                 if (timeWork < 12f) 
                 {
                     //camera.WorldToViewportPoint(gameObject.transform.position);
-                    canvas.TapWork(camera.WorldToScreenPoint(new Vector3(gameObject.transform.position.x - 0.07f, gameObject.transform.position.y - 0.04f, gameObject.transform.position.z - 0.1f))); //hz
+                    canvas.TapWorkStart();
+                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(gameObject.transform.position.x - 0.07f, gameObject.transform.position.y - 0.04f, gameObject.transform.position.z - 0.1f))); //hz
                 }
                 else
                 {
+                    canvas.TapWorkEnd();
                     timeWork = 0f;
                 }
             }

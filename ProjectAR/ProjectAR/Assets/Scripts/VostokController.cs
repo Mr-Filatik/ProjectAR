@@ -93,10 +93,19 @@ public class VostokController : MonoBehaviour
                 if (timeWork < 12f)
                 {
                     //camera.WorldToViewportPoint(gameObject.transform.position);
-                    canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step1.transform.position.x - 0.07f, step1.transform.position.y - 0.04f, step1.transform.position.z - 0.1f))); //hz
+                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step1.transform.position.x - 0.07f, step1.transform.position.y - 0.04f, step1.transform.position.z - 0.1f))); //hz
+                }
+                else if (timeWork < 14f)
+                {
+                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step2.transform.position.x - 0.07f, step2.transform.position.y - 0.04f, step2.transform.position.z - 0.1f))); //hz
+                }
+                else if (timeWork < 16f)
+                {
+                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step3.transform.position.x - 0.07f, step3.transform.position.y - 0.04f, step3.transform.position.z - 0.1f))); //hz
                 }
                 else
                 {
+                    //canvas.TapWorkEnd();
                     timeWork = 0f;
                 }
             }
