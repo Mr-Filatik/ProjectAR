@@ -9,7 +9,8 @@ public class EnableDisableController : MonoBehaviour
     [SerializeField] private VostokController vostok = null;
     [SerializeField] private SputnikController sputnik = null;
     [SerializeField] private LetterController letter = null;
-    [SerializeField] private CanvasController canvas = null;
+    [SerializeField] private CanvasController canvasForRotate = null;
+    [SerializeField] private CanvasController canvasForRestart = null;
 
     #endregion
 
@@ -29,9 +30,13 @@ public class EnableDisableController : MonoBehaviour
         {
             letter.Active(true);
         }
-        if (canvas != null)
+        if (canvasForRotate != null)
         {
-            canvas.Active(true);
+            canvasForRotate.ActiveRotate(true);
+        }
+        if (canvasForRestart != null)
+        {
+            canvasForRestart.ActiveRestart(true);
         }
     }
 
@@ -49,9 +54,13 @@ public class EnableDisableController : MonoBehaviour
         {
             letter.Active(false);
         }
-        if (canvas != null)
+        if (canvasForRotate != null)
         {
-            canvas.Active(false);
+            canvasForRotate.ActiveRotate(false);
+        }
+        if (canvasForRestart != null)
+        {
+            canvasForRestart.ActiveRestart(false);
         }
     }
 

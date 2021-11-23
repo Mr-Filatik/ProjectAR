@@ -7,6 +7,7 @@ public class LetterController : MonoBehaviour
 {
     #region Serialize Variables
 
+    [SerializeField] private CanvasController canvas = null;
     [SerializeField] private Text textBack = null;
     [SerializeField] private Text textFront = null;
     [SerializeField] private Image imageFront = null;
@@ -64,13 +65,33 @@ public class LetterController : MonoBehaviour
         {
             if (number != letter.GetLength(0) - 1)
             {
+                canvas.ActiveRestart(false);
                 isWork = true;
+            }
+            else
+            {
+                canvas.ActiveRestart(true);
+                /*textBack.text = "";
+                textFront.text = "";
+                number = 0;
+                currentTime = 0f;
+                isWork = true;*/
             }
         }
         else
         {
+            canvas.ActiveRestart(false);
             isWork = false;
         }
+    }
+
+    public void Restart()
+    {
+        textBack.text = "";
+        textFront.text = "";
+        number = 0;
+        currentTime = 0f;
+        isWork = true;
     }
 
     #endregion
@@ -83,6 +104,7 @@ public class LetterController : MonoBehaviour
         {
             if (textBack.text == "")
             {
+                canvas.ActiveRestart(false);
                 textBack.text += letter[number];
             }
             if (currentTime > 1f)
@@ -105,7 +127,9 @@ public class LetterController : MonoBehaviour
                 }
                 else
                 {
-                    //number = 0;
+                    textBack.text = "";
+                    textFront.text += letter[number] + "\n";
+                    canvas.ActiveRestart(true);
                     isWork = false;
                 }
             }

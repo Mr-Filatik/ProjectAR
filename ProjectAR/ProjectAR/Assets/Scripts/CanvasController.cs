@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
 {
+    #region Serialize Variables
+
     [SerializeField] private GameObject buttonRotate = null;
-    //[SerializeField] private GameObject tap = null;
+    [SerializeField] private GameObject buttonRestart = null;
 
-    //private bool isWork = false;
+    #endregion
 
-    public void Active(bool input)
+    #region Public Methods
+
+    public void ActiveRotate(bool input)
     {
         if (input)
         {
@@ -22,9 +26,27 @@ public class CanvasController : MonoBehaviour
         }
     }
 
+    public void ActiveRestart(bool input)
+    {
+        if (input)
+        {
+            buttonRestart.SetActive(true);
+        }
+        else
+        {
+            buttonRestart.SetActive(false);
+        }
+    }
+
+    #endregion
+
+    #region Private Methods
+
     private void Awake()
     {
         buttonRotate.SetActive(false);
-        //tap.SetActive(false);
+        buttonRestart.SetActive(false);
     }
+
+    #endregion
 }

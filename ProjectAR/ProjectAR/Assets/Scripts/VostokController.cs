@@ -17,6 +17,7 @@ public class VostokController : MonoBehaviour
     private float angle = 0f;
     private float speed = 50f;
     private ClickScript activeElenent = null;
+    private int state = 0;
 
     #endregion
 
@@ -91,32 +92,39 @@ public class VostokController : MonoBehaviour
         }
         else
         {
-            if (timeWork > 10f)
+            if (timeWork > 7f)
             {
-                if (timeWork < 12f)
+                switch (state)
                 {
-                    canvas1.TapWorkStart();
-                    //camera.WorldToViewportPoint(gameObject.transform.position);
-                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step1.transform.position.x - 0.07f, step1.transform.position.y - 0.04f, step1.transform.position.z - 0.1f))); //hz
+                    case 0: canvas1.TapWorkStart(); break;
+                    case 1: canvas2.TapWorkStart(); break;
+                    case 2: canvas3.TapWorkStart(); break;
                 }
-                else if (timeWork < 14f)
-                {
-                    canvas1.TapWorkEnd();
-                    canvas2.TapWorkStart();
-                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step2.transform.position.x - 0.07f, step2.transform.position.y - 0.04f, step2.transform.position.z - 0.1f))); //hz
-                }
-                else if (timeWork < 16f)
-                {
-                    canvas2.TapWorkEnd();
-                    canvas3.TapWorkStart();
-                    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step3.transform.position.x - 0.07f, step3.transform.position.y - 0.04f, step3.transform.position.z - 0.1f))); //hz
-                }
-                else
-                {
-                    canvas3.TapWorkEnd();
-                    //canvas.TapWorkEnd();
-                    timeWork = 0f;
-                }
+                state++;
+                if (state == 3) state = 0;
+                timeWork = 0f;
+                //if (timeWork < 12f)
+                //{
+                //    canvas1.TapWorkStart();
+                //    //camera.WorldToViewportPoint(gameObject.transform.position);
+                //    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step1.transform.position.x - 0.07f, step1.transform.position.y - 0.04f, step1.transform.position.z - 0.1f))); //hz
+                //}
+                //else if (timeWork < 14f)
+                //{
+                //    canvas2.TapWorkStart();
+                //    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step2.transform.position.x - 0.07f, step2.transform.position.y - 0.04f, step2.transform.position.z - 0.1f))); //hz
+                //}
+                //else if (timeWork < 16f)
+                //{
+                //    canvas3.TapWorkStart();
+                //    //canvas.TapWork(camera.WorldToScreenPoint(new Vector3(step3.transform.position.x - 0.07f, step3.transform.position.y - 0.04f, step3.transform.position.z - 0.1f))); //hz
+                //}
+                //else
+                //{
+                //    canvas3.TapWorkEnd();
+                //    //canvas.TapWorkEnd();
+
+                //}
             }
             timeWork += Time.deltaTime;
         }

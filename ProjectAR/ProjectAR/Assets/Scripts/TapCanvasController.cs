@@ -29,10 +29,12 @@ public class TapCanvasController : MonoBehaviour
         finger.color = new Color(1, 1, 1, 0);
         circleMin.color = new Color(1, 1, 1, 0);
         circleMax.color = new Color(1, 1, 1, 0);
-
-        finger.DOColor(new Color(1, 1, 1, 1), 1f);
-        circleMin.DOColor(new Color(1, 1, 1, 1), 1f);
-        circleMax.DOColor(new Color(1, 1, 1, 1), 1f);
+        StartCoroutine(PlayAnim(finger, true));
+        StartCoroutine(PlayAnim(circleMin, true));
+        StartCoroutine(PlayAnim(circleMax, true));
+        //finger.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => finger.DOColor(new Color(1, 1, 1, 0), 1f));
+        //circleMin.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(()=> circleMin.DOColor(new Color(1, 1, 1, 0), 1f));
+        //circleMax.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => circleMax.DOColor(new Color(1, 1, 1, 0), 1f));
 
         tap.SetActive(true);
         isWork = true;
@@ -48,17 +50,54 @@ public class TapCanvasController : MonoBehaviour
         }*/
     }
 
-    public void TapWorkEnd()
+    IEnumerator PlayAnim(Image item, bool repeat)
     {
-        finger.color = new Color(1, 1, 1, 0);
-        circleMin.color = new Color(1, 1, 1, 0);
-        circleMax.color = new Color(1, 1, 1, 0);
-        tap.SetActive(false);
-        isWork = false;
+        //item.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => item.DOColor(new Color(1, 1, 1, 0), 1f));
+        item.DOColor(new Color(1, 1, 1, 1), 1f);
+        yield return new WaitForSeconds(2);
+        item.DOColor(new Color(1, 1, 1, 0), 1f);
+
+        //yield return new WaitForSeconds(1.2f);
+
+        if (repeat)
+        {
+            yield return new WaitForSeconds(1.2f);
+            StartCoroutine(PlayAnim(item, false));
+        }
+        /*item.DOColor(new Color(1, 1, 1, 1), 1f);
+        yield return new WaitForSeconds(2);
+        item.DOColor(new Color(1, 1, 1, 0), 1f);*/
     }
 
-    private void OnEnable()
+    IEnumerator PlayAnimScaleFinger(Image item)
     {
-        
+        item.DOColor(new Color(1, 1, 1, 1), 1f);
+        yield return new WaitForSeconds(2);
+        item.DOColor(new Color(1, 1, 1, 0), 1f);
+
+        yield return new WaitForSeconds(1.2f);
+
+        item.DOColor(new Color(1, 1, 1, 1), 1f);
+        yield return new WaitForSeconds(2);
+        item.DOColor(new Color(1, 1, 1, 0), 1f);
+    }
+
+    IEnumerator PlayAnimScaleCircle(Image item)
+    {
+        item.DOColor(new Color(1, 1, 1, 1), 1f);
+        yield return new WaitForSeconds(2);
+        item.DOColor(new Color(1, 1, 1, 0), 1f);
+
+        yield return new WaitForSeconds(1.2f);
+
+        item.DOColor(new Color(1, 1, 1, 1), 1f);
+        yield return new WaitForSeconds(2);
+        item.DOColor(new Color(1, 1, 1, 0), 1f);
+    }
+
+    public void TapWorkEnd()
+    {
+        tap.SetActive(false);
+        isWork = false;
     }
 }
