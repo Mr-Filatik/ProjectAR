@@ -5,11 +5,7 @@ public class ClickScript : MonoBehaviour
     #region Serialize Variables
 
     [SerializeField] private VostokController vostokController = null;
-<<<<<<< HEAD
     [SerializeField] private TapCanvasController tapCanvasController = null;
-=======
-    [SerializeField] private GameObject info = null;
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 
     #endregion
 
@@ -34,17 +30,12 @@ public class ClickScript : MonoBehaviour
             isWork = true;
             currentTime = 0f;
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", currentColor);
-<<<<<<< HEAD
             //tapCanvasController.InfoWorkStart();
-=======
-            info.SetActive(true);
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
         }
         else
         {
             isWork = false;
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
-<<<<<<< HEAD
             //tapCanvasController.InfoWorkEnd();
         }
     }
@@ -58,9 +49,6 @@ public class ClickScript : MonoBehaviour
         else
         {
             tapCanvasController.InfoWorkEnd();
-=======
-            info.SetActive(false);
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
         }
     }
 
@@ -70,11 +58,7 @@ public class ClickScript : MonoBehaviour
 
     private void Awake()
     {
-<<<<<<< HEAD
         tapCanvasController.InfoWorkEnd();
-=======
-        info.SetActive(false);
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
     }
 
     private void Update()

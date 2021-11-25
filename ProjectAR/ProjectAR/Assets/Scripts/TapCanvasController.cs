@@ -58,24 +58,12 @@ public class TapCanvasController : MonoBehaviour
 
     public void InfoWorkEnd()
     {
-<<<<<<< HEAD
         infoText.DOColor(new Color(1, 1, 1, 0), 1f);
         //infoText.color = new Color(1, 1, 1, 0);
         //info.SetActive(false);
     }
 
     #endregion
-=======
-        finger.color = new Color(1, 1, 1, 0);
-        circleMin.color = new Color(1, 1, 1, 0);
-        circleMax.color = new Color(1, 1, 1, 0);
-        StartCoroutine(PlayAnim(finger));
-        StartCoroutine(PlayAnim(circleMin));
-        StartCoroutine(PlayAnim(circleMax));
-        //finger.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => finger.DOColor(new Color(1, 1, 1, 0), 1f));
-        //circleMin.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(()=> circleMin.DOColor(new Color(1, 1, 1, 0), 1f));
-        //circleMax.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => circleMax.DOColor(new Color(1, 1, 1, 0), 1f));
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 
     #region Private Methods
 
@@ -97,7 +85,6 @@ public class TapCanvasController : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     private IEnumerator PlayAnimScaleFinger(Image item, bool repeat)
     {
         item.DOColor(new Color(1, 1, 1, 1), 1f);
@@ -130,26 +117,6 @@ public class TapCanvasController : MonoBehaviour
             yield return new WaitForSeconds(1.2f);
             StartCoroutine(PlayAnimScaleCircleMin(item, false));
         }
-=======
-    IEnumerator PlayAnim(Image item)
-    {
-        //item.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => item.DOColor(new Color(1, 1, 1, 0), 1f));
-        item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);
-
-        yield return new WaitForSeconds(1.2f);
-
-        item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);
-    }
-
-    public void TapWorkEnd()
-    {
-        tap.SetActive(false);
-        isWork = false;
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
     }
 
     private IEnumerator PlayAnimScaleCircleMax(Image item, bool repeat)

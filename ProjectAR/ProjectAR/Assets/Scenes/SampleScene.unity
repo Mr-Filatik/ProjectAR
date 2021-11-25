@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.00079140527, g: 0.004178289, b: 0.020036943, a: 1}
+  m_IndirectSpecularColor: {r: 0.00077851326, g: 0.0040713646, b: 0.01999913, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -872,13 +872,10 @@ MonoBehaviour:
   finger: {fileID: 1228427348}
   circleMin: {fileID: 1345291885}
   circleMax: {fileID: 1118345186}
-<<<<<<< HEAD
   info: {fileID: 2115807984}
   infoText: {fileID: 2026414050}
   infoImage: {fileID: 0}
   vostok: {fileID: 2807589304029523376}
-=======
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 --- !u!1 &201237632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,13 +1598,10 @@ MonoBehaviour:
   finger: {fileID: 316107790}
   circleMin: {fileID: 21345226}
   circleMax: {fileID: 1749869211}
-<<<<<<< HEAD
   info: {fileID: 1815414512}
   infoText: {fileID: 624155002}
   infoImage: {fileID: 0}
   vostok: {fileID: 2807589304029523376}
-=======
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 --- !u!1 &521008211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,13 +2366,10 @@ MonoBehaviour:
   finger: {fileID: 330905849}
   circleMin: {fileID: 201237634}
   circleMax: {fileID: 2143082349}
-<<<<<<< HEAD
   info: {fileID: 1521732493}
   infoText: {fileID: 706503222}
   infoImage: {fileID: 0}
   vostok: {fileID: 2807589304029523376}
-=======
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 --- !u!4 &865542068
 Transform:
   m_ObjectHideFlags: 0
@@ -2526,13 +2517,10 @@ MonoBehaviour:
   finger: {fileID: 90885528}
   circleMin: {fileID: 423964987}
   circleMax: {fileID: 1350547379}
-<<<<<<< HEAD
   info: {fileID: 0}
   infoText: {fileID: 0}
   infoImage: {fileID: 0}
   vostok: {fileID: 0}
-=======
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 --- !u!1 &1044390799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,12 +3412,8 @@ MonoBehaviour:
   vostok: {fileID: 0}
   sputnik: {fileID: 1125577132}
   letter: {fileID: 0}
-<<<<<<< HEAD
   canvasForRotate: {fileID: 0}
   canvasForRestart: {fileID: 0}
-=======
-  canvas: {fileID: 0}
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 --- !u!1 &1521732493
 GameObject:
   m_ObjectHideFlags: 0
@@ -4433,11 +4417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 2807589304029523377}
-<<<<<<< HEAD
   tapCanvasController: {fileID: 865542067}
-=======
-  info: {fileID: 1521732493}
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 --- !u!4 &3295895180849051402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7437447921647951043, guid: e3f82c3774a46314d9a9d45a27e794ae,
@@ -4477,11 +4457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 2807589304029523377}
-<<<<<<< HEAD
   tapCanvasController: {fileID: 196171376}
-=======
-  info: {fileID: 2115807984}
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
 --- !u!1001 &5371176213138566089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4653,8 +4629,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 2807589304029523377}
-<<<<<<< HEAD
   tapCanvasController: {fileID: 512814799}
-=======
-  info: {fileID: 1815414512}
->>>>>>> 26f604595711211679dfb4bed820efea26804e0f
