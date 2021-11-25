@@ -873,6 +873,9 @@ MonoBehaviour:
   circleMin: {fileID: 1345291885}
   circleMax: {fileID: 1118345186}
   info: {fileID: 2115807984}
+  infoText: {fileID: 2026414050}
+  infoImage: {fileID: 0}
+  vostok: {fileID: 2807589304029523376}
 --- !u!1 &201237632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,6 +1599,9 @@ MonoBehaviour:
   circleMin: {fileID: 21345226}
   circleMax: {fileID: 1749869211}
   info: {fileID: 1815414512}
+  infoText: {fileID: 624155002}
+  infoImage: {fileID: 0}
+  vostok: {fileID: 2807589304029523376}
 --- !u!1 &521008211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,6 +2367,9 @@ MonoBehaviour:
   circleMin: {fileID: 201237634}
   circleMax: {fileID: 2143082349}
   info: {fileID: 1521732493}
+  infoText: {fileID: 706503222}
+  infoImage: {fileID: 0}
+  vostok: {fileID: 2807589304029523376}
 --- !u!4 &865542068
 Transform:
   m_ObjectHideFlags: 0
@@ -2509,6 +2518,9 @@ MonoBehaviour:
   circleMin: {fileID: 423964987}
   circleMax: {fileID: 1350547379}
   info: {fileID: 0}
+  infoText: {fileID: 0}
+  infoImage: {fileID: 0}
+  vostok: {fileID: 0}
 --- !u!1 &1044390799
 GameObject:
   m_ObjectHideFlags: 0
