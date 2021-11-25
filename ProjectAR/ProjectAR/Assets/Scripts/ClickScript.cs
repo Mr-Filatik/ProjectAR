@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickScript : MonoBehaviour
@@ -7,13 +5,14 @@ public class ClickScript : MonoBehaviour
     #region Serialize Variables
 
     [SerializeField] private VostokController vostokController = null;
-    [SerializeField] private GameObject info = null;
+    [SerializeField] private TapCanvasController tapCanvasController = null;
 
     #endregion
 
     #region Private Variables
 
     private bool isWork = false;
+    public bool IsWork => isWork;
     private float currentTime = 0f;
     private bool vector = true;
     private float cooldownTime = 1f;
@@ -31,13 +30,25 @@ public class ClickScript : MonoBehaviour
             isWork = true;
             currentTime = 0f;
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", currentColor);
-            info.SetActive(true);
+            //tapCanvasController.InfoWorkStart();
         }
         else
         {
             isWork = false;
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
-            info.SetActive(false);
+            //tapCanvasController.InfoWorkEnd();
+        }
+    }
+
+    public void ActiveInfo(bool state)
+    {
+        if (state)
+        {
+            tapCanvasController.InfoWorkStart();
+        }
+        else
+        {
+            tapCanvasController.InfoWorkEnd();
         }
     }
 
@@ -47,7 +58,7 @@ public class ClickScript : MonoBehaviour
 
     private void Awake()
     {
-        info.SetActive(false);
+        tapCanvasController.InfoWorkEnd();
     }
 
     private void Update()
@@ -76,7 +87,6 @@ public class ClickScript : MonoBehaviour
                 else
                 {
                     currentTime -= Time.deltaTime;
-                    
                 }
                 gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(defaultColor, currentColor, currentTime));
             }

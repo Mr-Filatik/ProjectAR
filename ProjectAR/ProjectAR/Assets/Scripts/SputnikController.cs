@@ -31,15 +31,16 @@ public class SputnikController : MonoBehaviour
         if (input)
         {
             timeWork = 0f;
+            startPosition = transform.localPosition;
         }
         else
         {
-            angle = 3.145f;
+            angle = Mathf.PI;
             isWork = false;
             transform.localPosition = startPosition;
             transform.localEulerAngles = new Vector3(0, 0, 0);
             transform.localScale = new Vector3(1f, 1f, 1f);
-            sputnik.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
+            sputnik.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             canvas.TapWorkEnd();
         }
     }
@@ -52,27 +53,28 @@ public class SputnikController : MonoBehaviour
     {
         if (isWork)
         {
-            if (angle > 15.725f)
+            if (angle > Mathf.PI * 5f)
             {
-                angle = 3.145f;
+                //angle = 3.145f;
+                angle = Mathf.PI;
                 isWork = false;
                 transform.localPosition = startPosition;
                 transform.localEulerAngles = new Vector3(0, 0, 0);
                 transform.localScale = new Vector3(1f, 1f, 1f);
-                sputnik.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
+                sputnik.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             }
             else
             {
-                angle += Time.deltaTime;
+                angle += Time.deltaTime * (1f + (1f - Mathf.Abs(Mathf.PI * 3f - angle) / (Mathf.PI * 2f)) * 1.5f);
                 transform.localPosition = new Vector3(Mathf.Cos(angle * speed) * radius + startPosition.x, startPosition.y, -Mathf.Sin(angle * speed) * radius + startPosition.z + radius);
                 transform.localScale = new Vector3((0.5f + (Mathf.Sin(angle * speed) + 1) / 4 ), (0.5f + (Mathf.Sin(angle * speed) + 1) / 4), (0.5f + (Mathf.Sin(angle * speed) + 1) / 4));
-                if (angle > 9.435f)
+                if (angle > Mathf.PI * 3f)
                 {
-                    sputnik.transform.localEulerAngles = new Vector3(0, ((angle - 15.725f) / 3.145f) * 90, 0);
+                    sputnik.transform.localEulerAngles = new Vector3(0, ((angle - Mathf.PI * 5f) / Mathf.PI) * 90, 0);
                 }
                 else
                 {
-                    sputnik.transform.localEulerAngles = new Vector3(0, ((angle - 15.725f) / 3.145f) * 90, 0);
+                    sputnik.transform.localEulerAngles = new Vector3(0, ((angle - Mathf.PI * 5f) / Mathf.PI) * 90, 0);
                 }
             }
             timeWork = 0f;
@@ -83,15 +85,6 @@ public class SputnikController : MonoBehaviour
             {
                 canvas.TapWorkStart();
                 timeWork = 0f;
-                /*if (timeWork < 12f)
-                {
-                    canvas.TapWorkStart();
-                }
-                else
-                {
-                    canvas.TapWorkEnd();
-                    timeWork = 0f;
-                }*/
             }
             timeWork += Time.deltaTime;
         }

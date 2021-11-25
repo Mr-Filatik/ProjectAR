@@ -6,93 +6,41 @@ using DG.Tweening;
 
 public class TapCanvasController : MonoBehaviour
 {
+    #region Serialize Variables
+
     [SerializeField] private Camera camera = null;
     [SerializeField] private GameObject tap = null;
     [SerializeField] private Image finger = null;
     [SerializeField] private Image circleMin = null;
     [SerializeField] private Image circleMax = null;
+    [SerializeField] private GameObject info = null;
+    [SerializeField] private Text infoText = null;
+    [SerializeField] private Text infoImage = null;
+    [SerializeField] private GameObject vostok = null;
+
+    #endregion
+
+    #region Private Variables
 
     private bool isWork = false;
 
-    private void Awake()
-    {
-        tap.SetActive(false);
-    }
+    #endregion
 
-    private void Update()
-    {
-        transform.localEulerAngles = camera.transform.localEulerAngles;
-    }
+    #region Public Methods
 
     public void TapWorkStart()
     {
         finger.color = new Color(1, 1, 1, 0);
         circleMin.color = new Color(1, 1, 1, 0);
         circleMax.color = new Color(1, 1, 1, 0);
-        StartCoroutine(PlayAnim(finger, true));
-        StartCoroutine(PlayAnim(circleMin, true));
-        StartCoroutine(PlayAnim(circleMax, true));
+        StartCoroutine(PlayAnimScaleFinger(finger, true));
+        StartCoroutine(PlayAnimScaleCircleMin(circleMin, true));
+        StartCoroutine(PlayAnimScaleCircleMax(circleMax, true));
         //finger.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => finger.DOColor(new Color(1, 1, 1, 0), 1f));
         //circleMin.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(()=> circleMin.DOColor(new Color(1, 1, 1, 0), 1f));
         //circleMax.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => circleMax.DOColor(new Color(1, 1, 1, 0), 1f));
-
         tap.SetActive(true);
         isWork = true;
-        /*if (!isWork)
-        {
-            isWork = true;
-            tap.transform.localPosition = new Vector3(coordinates.x - gameObject.GetComponent<Canvas>().pixelRect.width / 2, coordinates.y - gameObject.GetComponent<Canvas>().pixelRect.height / 2, coordinates.z);
-            tap.SetActive(true);
-        }
-        else
-        {
-            tap.transform.localPosition = coordinates;
-        }*/
-    }
-
-    IEnumerator PlayAnim(Image item, bool repeat)
-    {
-        //item.DOColor(new Color(1, 1, 1, 1), 1f).OnComplete(() => item.DOColor(new Color(1, 1, 1, 0), 1f));
-        item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);
-
-        //yield return new WaitForSeconds(1.2f);
-
-        if (repeat)
-        {
-            yield return new WaitForSeconds(1.2f);
-            StartCoroutine(PlayAnim(item, false));
-        }
-        /*item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);*/
-    }
-
-    IEnumerator PlayAnimScaleFinger(Image item)
-    {
-        item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);
-
-        yield return new WaitForSeconds(1.2f);
-
-        item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);
-    }
-
-    IEnumerator PlayAnimScaleCircle(Image item)
-    {
-        item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);
-
-        yield return new WaitForSeconds(1.2f);
-
-        item.DOColor(new Color(1, 1, 1, 1), 1f);
-        yield return new WaitForSeconds(2);
-        item.DOColor(new Color(1, 1, 1, 0), 1f);
     }
 
     public void TapWorkEnd()
@@ -100,4 +48,94 @@ public class TapCanvasController : MonoBehaviour
         tap.SetActive(false);
         isWork = false;
     }
+
+    public void InfoWorkStart()
+    {
+        infoText.color = new Color(1, 1, 1, 0);
+        infoText.DOColor(new Color(1, 1, 1, 1), 1f);
+        info.SetActive(true);
+    }
+
+    public void InfoWorkEnd()
+    {
+        infoText.DOColor(new Color(1, 1, 1, 0), 1f);
+        //infoText.color = new Color(1, 1, 1, 0);
+        //info.SetActive(false);
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    private void Awake()
+    {
+        tap.SetActive(false);
+        info.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (infoText.color.a == 0)
+        {
+            transform.localEulerAngles = camera.transform.localEulerAngles;
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(camera.transform.localEulerAngles.x, -vostok.transform.localEulerAngles.y + camera.transform.localEulerAngles.y, camera.transform.localEulerAngles.z);
+        }
+    }
+
+    private IEnumerator PlayAnimScaleFinger(Image item, bool repeat)
+    {
+        item.DOColor(new Color(1, 1, 1, 1), 1f);
+        yield return new WaitForSeconds(1.2f);
+        item.transform.DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        item.transform.DOScale(new Vector3(1f, 1f, 1f), 0.4f);
+        yield return new WaitForSeconds(0.6f);
+        item.DOColor(new Color(1, 1, 1, 0), 1f);
+        if (repeat)
+        {
+            yield return new WaitForSeconds(1.2f);
+            StartCoroutine(PlayAnimScaleFinger(item, false));
+        }
+    }
+
+    private IEnumerator PlayAnimScaleCircleMin(Image item, bool repeat)
+    {
+        item.transform.localScale = new Vector3(1f, 1f, 1f);
+        //item.DOColor(new Color(1, 1, 1, 1), 1f);
+        //yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.2f);
+        item.DOColor(new Color(1, 1, 1, 1), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        item.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.6f);
+        item.DOColor(new Color(1, 1, 1, 0), 0.6f);
+        yield return new WaitForSeconds(0.6f);
+        if (repeat)
+        {
+            yield return new WaitForSeconds(1.2f);
+            StartCoroutine(PlayAnimScaleCircleMin(item, false));
+        }
+    }
+
+    private IEnumerator PlayAnimScaleCircleMax(Image item, bool repeat)
+    {
+        item.transform.localScale = new Vector3(1f, 1f, 1f);
+        //item.DOColor(new Color(1, 1, 1, 1), 1f);
+        //yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.2f);
+        item.DOColor(new Color(1, 1, 1, 1), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        item.transform.DOScale(new Vector3(1.6f, 1.6f, 1.6f), 0.6f);
+        item.DOColor(new Color(1, 1, 1, 0), 0.6f);
+        yield return new WaitForSeconds(0.6f);
+        if (repeat)
+        {
+            yield return new WaitForSeconds(1.2f);
+            StartCoroutine(PlayAnimScaleCircleMax(item, false));
+        }
+    }
+
+    #endregion
 }

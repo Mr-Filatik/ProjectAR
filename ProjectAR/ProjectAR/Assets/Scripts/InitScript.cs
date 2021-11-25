@@ -10,6 +10,7 @@ public class InitScript : MonoBehaviour
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Application.targetFrameRate = 60;
+        Resources.UnloadUnusedAssets();
     }
 
     #endregion

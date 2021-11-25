@@ -614,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165585583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: -0.261}
+  m_LocalPosition: {x: -0.12, y: 0.6, z: -0.261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8102441870295315898}
@@ -649,7 +649,7 @@ RectTransform:
   m_GameObject: {fileID: 192869169}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.134}
-  m_LocalScale: {x: 0.0005, y: 0.0005, z: 0.0005}
+  m_LocalScale: {x: 0.0008, y: 0.0008, z: 0.0008}
   m_Children:
   - {fileID: 1650824422}
   - {fileID: 1521732494}
@@ -750,7 +750,7 @@ RectTransform:
   m_GameObject: {fileID: 195076002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.145}
-  m_LocalScale: {x: 0.0005, y: 0.0005, z: 0.0005}
+  m_LocalScale: {x: 0.0008, y: 0.0008, z: 0.0008}
   m_Children:
   - {fileID: 1070279271}
   - {fileID: 1815414513}
@@ -872,6 +872,7 @@ MonoBehaviour:
   finger: {fileID: 1228427348}
   circleMin: {fileID: 1345291885}
   circleMax: {fileID: 1118345186}
+  info: {fileID: 2115807984}
 --- !u!1 &201237632
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +976,7 @@ RectTransform:
   m_GameObject: {fileID: 223974226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.156}
-  m_LocalScale: {x: 0.0005, y: 0.0005, z: 0.0005}
+  m_LocalScale: {x: 0.0008, y: 0.0008, z: 0.0008}
   m_Children:
   - {fileID: 761142310}
   m_Father: {fileID: 1019089379}
@@ -1594,6 +1595,7 @@ MonoBehaviour:
   finger: {fileID: 316107790}
   circleMin: {fileID: 21345226}
   circleMax: {fileID: 1749869211}
+  info: {fileID: 1815414512}
 --- !u!1 &521008211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1744,7 @@ RectTransform:
   m_GameObject: {fileID: 565794873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.2}
-  m_LocalScale: {x: 0.0005, y: 0.0005, z: 0.0005}
+  m_LocalScale: {x: 0.0008, y: 0.0008, z: 0.0008}
   m_Children:
   - {fileID: 737057951}
   - {fileID: 2115807985}
@@ -2358,6 +2360,7 @@ MonoBehaviour:
   finger: {fileID: 330905849}
   circleMin: {fileID: 201237634}
   circleMax: {fileID: 2143082349}
+  info: {fileID: 1521732493}
 --- !u!4 &865542068
 Transform:
   m_ObjectHideFlags: 0
@@ -2481,7 +2484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019089378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014, y: 0.592, z: -0.315}
+  m_LocalPosition: {x: -0.11, y: 0.592, z: -0.315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 223974227}
@@ -2505,6 +2508,7 @@ MonoBehaviour:
   finger: {fileID: 90885528}
   circleMin: {fileID: 423964987}
   circleMax: {fileID: 1350547379}
+  info: {fileID: 0}
 --- !u!1 &1044390799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,7 +2881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125577130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.116, z: -0.141}
+  m_LocalPosition: {x: 0, y: -0.315, z: -0.141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1019089379}
@@ -4401,7 +4405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 2807589304029523377}
-  info: {fileID: 1521732493}
+  tapCanvasController: {fileID: 865542067}
 --- !u!4 &3295895180849051402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7437447921647951043, guid: e3f82c3774a46314d9a9d45a27e794ae,
@@ -4441,7 +4445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 2807589304029523377}
-  info: {fileID: 2115807984}
+  tapCanvasController: {fileID: 196171376}
 --- !u!1001 &5371176213138566089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4613,4 +4617,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostokController: {fileID: 2807589304029523377}
-  info: {fileID: 1815414512}
+  tapCanvasController: {fileID: 512814799}

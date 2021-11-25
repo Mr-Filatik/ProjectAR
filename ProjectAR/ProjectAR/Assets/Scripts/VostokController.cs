@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class VostokController : MonoBehaviour
 {
+    #region Serialize Variables
+
     [SerializeField] private CanvasController canvas = null;
     [SerializeField] private Camera camera = null;
     [SerializeField] private TapCanvasController canvas1 = null;
     [SerializeField] private TapCanvasController canvas2 = null;
     [SerializeField] private TapCanvasController canvas3 = null;
 
+    #endregion
+
     #region Private Variables
 
     private bool isWork = false;
     private float timeWork = 0f;
     private float angle = 0f;
-    private float speed = 50f;
+    private float speed = 100f;
     private ClickScript activeElenent = null;
     private int state = 0;
 
@@ -28,6 +32,7 @@ public class VostokController : MonoBehaviour
         if (activeElenent == clickScript)
         {
             clickScript.Active(false);
+            clickScript.ActiveInfo(false);
             activeElenent = null;
         }
         else
@@ -35,11 +40,16 @@ public class VostokController : MonoBehaviour
             if (activeElenent != null)
             {
                 activeElenent.Active(false);
+                activeElenent.ActiveInfo(false);
             }
             clickScript.Active(true);
+            clickScript.ActiveInfo(true);
             activeElenent = clickScript;
         }
         timeWork = 0f;
+        canvas1.TapWorkEnd();
+        canvas2.TapWorkEnd();
+        canvas3.TapWorkEnd();
     }
 
     public void Active(bool input)
@@ -53,6 +63,7 @@ public class VostokController : MonoBehaviour
             if (activeElenent != null)
             {
                 activeElenent.Active(false);
+                activeElenent.ActiveInfo(false);
                 activeElenent = null;
             }
             canvas1.TapWorkEnd();
@@ -66,6 +77,16 @@ public class VostokController : MonoBehaviour
         if (!isWork)
         {
             isWork = true;
+            canvas1.TapWorkEnd();
+            canvas2.TapWorkEnd();
+            canvas3.TapWorkEnd();
+            //canvas1.InfoWorkEnd();
+            //canvas2.InfoWorkEnd();
+            //canvas3.InfoWorkEnd();
+            /*if (activeElenent != null)
+            {
+                activeElenent.ActiveInfo(false);
+            }*/
         }
     }
 
@@ -77,11 +98,18 @@ public class VostokController : MonoBehaviour
     {
         if (isWork)
         {
-            if (angle >= 360) //change
+            if (angle >= 360)
             {
                 angle = 0f;
                 isWork = false;
                 transform.localEulerAngles = new Vector3(-90, 0, 0);
+                if (activeElenent != null)
+                {
+                    if (activeElenent.IsWork)
+                    {
+                        activeElenent.ActiveInfo(true);
+                    }
+                }
             }
             else
             {
