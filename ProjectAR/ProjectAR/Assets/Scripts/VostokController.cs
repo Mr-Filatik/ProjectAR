@@ -103,13 +103,13 @@ public class VostokController : MonoBehaviour
                 angle = 0f;
                 isWork = false;
                 transform.localEulerAngles = new Vector3(-90, 0, 0);
-                if (activeElenent != null)
+                /*if (activeElenent != null)
                 {
                     if (activeElenent.IsWork)
                     {
                         activeElenent.ActiveInfo(true);
                     }
-                }
+                }*/
             }
             else
             {

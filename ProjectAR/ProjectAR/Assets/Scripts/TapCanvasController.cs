@@ -15,7 +15,7 @@ public class TapCanvasController : MonoBehaviour
     [SerializeField] private Image circleMax = null;
     [SerializeField] private GameObject info = null;
     [SerializeField] private Text infoText = null;
-    [SerializeField] private Text infoImage = null;
+    [SerializeField] private Image[] infoImage = null;
     [SerializeField] private GameObject vostok = null;
 
     #endregion
@@ -52,13 +52,25 @@ public class TapCanvasController : MonoBehaviour
     public void InfoWorkStart()
     {
         infoText.color = new Color(1, 1, 1, 0);
+        foreach (Image item in infoImage)
+        {
+            item.color = new Color(1, 1, 1, 0);
+        }
         infoText.DOColor(new Color(1, 1, 1, 1), 1f);
+        foreach (Image item in infoImage)
+        {
+            item.DOColor(new Color(1, 1, 1, 1), 1f);
+        }
         info.SetActive(true);
     }
 
     public void InfoWorkEnd()
     {
         infoText.DOColor(new Color(1, 1, 1, 0), 1f);
+        foreach (Image item in infoImage)
+        {
+            item.DOColor(new Color(1, 1, 1, 0), 1f);
+        }
         //infoText.color = new Color(1, 1, 1, 0);
         //info.SetActive(false);
     }
@@ -70,18 +82,25 @@ public class TapCanvasController : MonoBehaviour
     private void Awake()
     {
         tap.SetActive(false);
-        info.SetActive(false);
+        if (info != null) info.SetActive(false);
     }
 
     private void Update()
     {
-        if (infoText.color.a == 0)
+        if (infoText != null && infoText.color.a == 0)
         {
             transform.localEulerAngles = camera.transform.localEulerAngles;
         }
         else
         {
-            transform.localEulerAngles = new Vector3(camera.transform.localEulerAngles.x, -vostok.transform.localEulerAngles.y + camera.transform.localEulerAngles.y, camera.transform.localEulerAngles.z);
+            if (vostok != null)
+            {
+                transform.localEulerAngles = new Vector3(camera.transform.localEulerAngles.x, -vostok.transform.localEulerAngles.y + camera.transform.localEulerAngles.y, camera.transform.localEulerAngles.z);
+            }
+            else
+            {
+                transform.localEulerAngles = camera.transform.localEulerAngles;
+            }
         }
     }
 
