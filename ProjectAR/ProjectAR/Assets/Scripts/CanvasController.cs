@@ -46,6 +46,8 @@ public class CanvasController : MonoBehaviour
     {
         buttonRotate.SetActive(false);
         buttonRestart.SetActive(false);
+
+
     }
 
     #endregion
