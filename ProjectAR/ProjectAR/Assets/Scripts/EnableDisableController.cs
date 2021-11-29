@@ -16,6 +16,11 @@ public class EnableDisableController : MonoBehaviour
 
     #region Private Methods
 
+    private void Awake()
+    {
+        gameObject.SetActive(true);
+    }
+
     private void OnEnable()
     {
         if (vostok != null)

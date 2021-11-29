@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 324351cd8edb7fd43a6edad0cc0b4d24
+guid: 2a73d3900e830bb4b86532ab13217bd7
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,7 +11,10 @@ TrueTypeFontImporter:
   fontNames:
   - Caveat
   fallbackFontReferences:
+  - {fileID: 12800000, guid: 11000b533f6595245b769a5e347d13c9, type: 3}
+  - {fileID: 12800000, guid: 324351cd8edb7fd43a6edad0cc0b4d24, type: 3}
   - {fileID: 12800000, guid: 90e94bb4e64726249963fd1866c93068, type: 3}
+  - {fileID: 12800000, guid: 374003fd6633b6741b0b854fe0927516, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

@@ -99,9 +99,19 @@ public class TapCanvasController : MonoBehaviour
 
     private void Update()
     {
-        if (infoText != null && infoText[0].color.a == 0)
+        if (infoText != null)
         {
-            transform.localEulerAngles = camera.transform.localEulerAngles;
+            if (vostok != null)
+            {
+                if (infoText[0].color.a == 0)
+                {
+                    transform.localEulerAngles = camera.transform.localEulerAngles;
+                }
+            }
+            else
+            {
+                transform.localEulerAngles = camera.transform.localEulerAngles;
+            }
         }
         else
         {

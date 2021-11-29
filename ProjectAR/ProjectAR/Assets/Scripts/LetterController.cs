@@ -98,6 +98,12 @@ public class LetterController : MonoBehaviour
 
     #region Private Methods
 
+    private void Awake()
+    {
+        textBack.text = "";
+        textFront.text = "";
+    }
+
     private void Update()
     {
         if (isWork)
