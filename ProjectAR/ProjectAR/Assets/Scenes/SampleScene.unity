@@ -1514,10 +1514,17 @@ MonoBehaviour:
   circleMin: {fileID: 1345291885}
   circleMax: {fileID: 1118345186}
   info: {fileID: 2115807984}
-  infoText: {fileID: 2026414050}
+  infoText:
+  - {fileID: 2026414050}
+  - {fileID: 549014123}
+  - {fileID: 1606114417}
   infoImage:
   - {fileID: 1755755699}
   - {fileID: 1626060233}
+  - {fileID: 703216560}
+  - {fileID: 260062433}
+  - {fileID: 148331261}
+  - {fileID: 388286772}
   vostok: {fileID: 2807589304029523376}
 --- !u!1 &201237632
 GameObject:
@@ -3228,10 +3235,17 @@ MonoBehaviour:
   circleMin: {fileID: 21345226}
   circleMax: {fileID: 1749869211}
   info: {fileID: 1815414512}
-  infoText: {fileID: 624155002}
+  infoText:
+  - {fileID: 624155002}
+  - {fileID: 808996197}
+  - {fileID: 167358225}
   infoImage:
   - {fileID: 72406431}
   - {fileID: 1404457965}
+  - {fileID: 486015892}
+  - {fileID: 1552470192}
+  - {fileID: 742860574}
+  - {fileID: 1941113831}
   vostok: {fileID: 2807589304029523376}
 --- !u!1 &521008211
 GameObject:
@@ -5004,10 +5018,20 @@ MonoBehaviour:
   circleMin: {fileID: 201237634}
   circleMax: {fileID: 2143082349}
   info: {fileID: 1521732493}
-  infoText: {fileID: 706503222}
+  infoText:
+  - {fileID: 706503222}
+  - {fileID: 1688102757}
+  - {fileID: 738921391}
+  - {fileID: 1310690405}
   infoImage:
   - {fileID: 854860095}
   - {fileID: 907021944}
+  - {fileID: 877808410}
+  - {fileID: 46562218}
+  - {fileID: 1169103977}
+  - {fileID: 624929572}
+  - {fileID: 1698594511}
+  - {fileID: 982376951}
   vostok: {fileID: 2807589304029523376}
 --- !u!4 &865542068
 Transform:
@@ -5806,7 +5830,7 @@ MonoBehaviour:
   circleMin: {fileID: 423964987}
   circleMax: {fileID: 1350547379}
   info: {fileID: 0}
-  infoText: {fileID: 0}
+  infoText: []
   infoImage: []
   vostok: {fileID: 0}
 --- !u!1 &1044390799
@@ -6172,7 +6196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1125577131
 Transform:
   m_ObjectHideFlags: 0

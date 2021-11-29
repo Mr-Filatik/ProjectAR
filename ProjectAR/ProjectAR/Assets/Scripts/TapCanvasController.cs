@@ -14,7 +14,7 @@ public class TapCanvasController : MonoBehaviour
     [SerializeField] private Image circleMin = null;
     [SerializeField] private Image circleMax = null;
     [SerializeField] private GameObject info = null;
-    [SerializeField] private Text infoText = null;
+    [SerializeField] private Text[] infoText = null;
     [SerializeField] private Image[] infoImage = null;
     [SerializeField] private GameObject vostok = null;
 
@@ -51,12 +51,20 @@ public class TapCanvasController : MonoBehaviour
 
     public void InfoWorkStart()
     {
-        infoText.color = new Color(1, 1, 1, 0);
+        foreach (Text item in infoText)
+        {
+            item.color = new Color(1, 1, 1, 0);
+        }
+        //infoText.color = new Color(1, 1, 1, 0);
         foreach (Image item in infoImage)
         {
             item.color = new Color(1, 1, 1, 0);
         }
-        infoText.DOColor(new Color(1, 1, 1, 1), 1f);
+        foreach (Text item in infoText)
+        {
+            item.DOColor(new Color(1, 1, 1, 1), 1f);
+        }
+        //infoText.DOColor(new Color(1, 1, 1, 1), 1f);
         foreach (Image item in infoImage)
         {
             item.DOColor(new Color(1, 1, 1, 1), 1f);
@@ -66,7 +74,11 @@ public class TapCanvasController : MonoBehaviour
 
     public void InfoWorkEnd()
     {
-        infoText.DOColor(new Color(1, 1, 1, 0), 1f);
+        foreach (Text item in infoText)
+        {
+            item.DOColor(new Color(1, 1, 1, 0), 1f);
+        }
+        //infoText.DOColor(new Color(1, 1, 1, 0), 1f);
         foreach (Image item in infoImage)
         {
             item.DOColor(new Color(1, 1, 1, 0), 1f);
@@ -87,7 +99,7 @@ public class TapCanvasController : MonoBehaviour
 
     private void Update()
     {
-        if (infoText != null && infoText.color.a == 0)
+        if (infoText != null && infoText[0].color.a == 0)
         {
             transform.localEulerAngles = camera.transform.localEulerAngles;
         }
