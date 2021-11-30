@@ -9,8 +9,8 @@ public class CanvasController : MonoBehaviour
 
     [SerializeField] private GameObject buttonRotate = null;
     [SerializeField] private GameObject buttonRestart = null;
-    [SerializeField] private Image imageRestart = null;
-    [SerializeField] private Image imageWork = null;
+    [SerializeField] private Sprite imageRestart = null;
+    [SerializeField] private Sprite imageWork = null;
 
     #endregion
 
