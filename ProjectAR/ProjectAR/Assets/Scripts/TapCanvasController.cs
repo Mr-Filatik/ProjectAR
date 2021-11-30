@@ -107,9 +107,14 @@ public class TapCanvasController : MonoBehaviour
                 {
                     transform.localEulerAngles = camera.transform.localEulerAngles;
                 }
+                else
+                {
+                    transform.localEulerAngles = new Vector3(camera.transform.localEulerAngles.x, -vostok.transform.localEulerAngles.y + camera.transform.localEulerAngles.y, camera.transform.localEulerAngles.z);
+                }
             }
             else
             {
+                //transform.localEulerAngles = new Vector3(camera.transform.localEulerAngles.x, -vostok.transform.localEulerAngles.y + camera.transform.localEulerAngles.y, camera.transform.localEulerAngles.z);
                 transform.localEulerAngles = camera.transform.localEulerAngles;
             }
         }

@@ -9,6 +9,8 @@ public class CanvasController : MonoBehaviour
 
     [SerializeField] private GameObject buttonRotate = null;
     [SerializeField] private GameObject buttonRestart = null;
+    [SerializeField] private Image imageRestart = null;
+    [SerializeField] private Image imageWork = null;
 
     #endregion
 
@@ -46,8 +48,6 @@ public class CanvasController : MonoBehaviour
     {
         buttonRotate.SetActive(false);
         buttonRestart.SetActive(false);
-
-
     }
 
     #endregion
