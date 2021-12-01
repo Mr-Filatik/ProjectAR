@@ -7,10 +7,11 @@ public class CanvasController : MonoBehaviour
 {
     #region Serialize Variables
 
-    [SerializeField] private GameObject buttonRotate = null;
-    [SerializeField] private GameObject buttonRestart = null;
+    [SerializeField] private Button btnRotate = null;
+    [SerializeField] private Button btnRestart = null;
     [SerializeField] private Sprite imageRestart = null;
     [SerializeField] private Sprite imageWork = null;
+    [SerializeField] private Image imageLogoInpit = null;
 
     #endregion
 
@@ -20,11 +21,11 @@ public class CanvasController : MonoBehaviour
     {
         if (input)
         {
-            buttonRotate.SetActive(true);
+            btnRotate.gameObject.SetActive(true);
         }
         else
         {
-            buttonRotate.SetActive(false);
+            btnRotate.gameObject.SetActive(false);
         }
     }
 
@@ -32,33 +33,13 @@ public class CanvasController : MonoBehaviour
     {
         if (input)
         {
-            //if (type)
-            //{
-            //    buttonRestart.GetComponent<Button>().GetComponent<Image>().sprite = imageWork;
-            //}
-            //else
-            //{
-            //    buttonRestart.GetComponent<Button>().GetComponent<Image>().sprite = imageRestart;
-            //}
-            buttonRestart.SetActive(true);
+            btnRestart.gameObject.SetActive(true);
         }
         else
         {
-            buttonRestart.SetActive(false);
+            btnRestart.gameObject.SetActive(false);
         }
     }
-
-    //public void ActiveRestart(bool input)
-    //{
-    //    if (input)
-    //    {
-    //        buttonRestart.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        buttonRestart.SetActive(false);
-    //    }
-    //}
 
     #endregion
 
@@ -66,8 +47,11 @@ public class CanvasController : MonoBehaviour
 
     private void Awake()
     {
-        buttonRotate.SetActive(false);
-        buttonRestart.SetActive(false);
+        btnRotate.gameObject.SetActive(false);
+        btnRestart.gameObject.SetActive(false);
+        imageLogoInpit.rectTransform.position = new Vector3(Screen.width / 2f, Screen.height - 100f, 0f);
+        (btnRotate.transform as RectTransform).position = new Vector3(250f, 150f, 0f);
+        (btnRestart.transform as RectTransform).position = new Vector3(250f, 150f, 0f);
     }
 
     #endregion
