@@ -49,7 +49,8 @@ public class LetterController : MonoBehaviour
         "           Мой адрес: Московская обл.,",
         "                            пос. Чкаловская,",
         "                           ул. Циолковского,",
-        "                                дом 4, кв. 57."};
+        "                                дом 4, кв. 57.",
+        ""};
 
     #endregion
 
@@ -98,6 +99,7 @@ public class LetterController : MonoBehaviour
     {
         textBack.text = "";
         textFront.text = "";
+        number = 0;
     }
 
     private void Update()
@@ -112,7 +114,7 @@ public class LetterController : MonoBehaviour
             if (currentTime > 1f)
             {
                 currentTime = 0f;
-                if (number < letter.GetLength(0) - 1)
+                if (number < letter.GetLength(0) - 2)
                 {
                     number++;
                     imageFront.color = new Color(imageFront.color.r, imageFront.color.g, imageFront.color.b, 1);

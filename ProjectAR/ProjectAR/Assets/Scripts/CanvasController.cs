@@ -32,6 +32,14 @@ public class CanvasController : MonoBehaviour
     {
         if (input)
         {
+            //if (type)
+            //{
+            //    buttonRestart.GetComponent<Button>().GetComponent<Image>().sprite = imageWork;
+            //}
+            //else
+            //{
+            //    buttonRestart.GetComponent<Button>().GetComponent<Image>().sprite = imageRestart;
+            //}
             buttonRestart.SetActive(true);
         }
         else
@@ -39,6 +47,18 @@ public class CanvasController : MonoBehaviour
             buttonRestart.SetActive(false);
         }
     }
+
+    //public void ActiveRestart(bool input)
+    //{
+    //    if (input)
+    //    {
+    //        buttonRestart.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        buttonRestart.SetActive(false);
+    //    }
+    //}
 
     #endregion
 
