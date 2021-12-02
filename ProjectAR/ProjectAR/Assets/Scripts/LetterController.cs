@@ -11,6 +11,7 @@ public class LetterController : MonoBehaviour
     [SerializeField] private Text textBack = null;
     [SerializeField] private Text textFront = null;
     [SerializeField] private Image imageFront = null;
+    [SerializeField] private SoundController soundController = null;
 
     #endregion
 
@@ -20,36 +21,36 @@ public class LetterController : MonoBehaviour
     private float currentTime = 0f;
     private int number = 0;
     private string[] letter = new string[] {
-        "Здравствуйте, Сергей Иванович! На днях",
-        "получил Ваше письмо. Очень ему рад. До",
-        "этого ничего от Вас не получал и был",
-        "этим огорчён. Сам написать не мог т.к.",
-        "не знал точного адреса. Я был в Сарато-",
-        "ве в 1960 году весной, заходили к Кала-",
-        "шникову Виктору, вместе учились в аэро-",
-        "клубе, но он точного адреса  не знал,",
-        "а я хотел к Вам зайти. Зашёл к Мартья-",
-        "нову, но его уже там не было, потом в ",
-        "Куйбышеве. Походил по городу, зашёл к",
-        "себе в техникум и уехал. Весной, в годо-",
-        "вщину полёта хотел быть в Саратове, но ",
-        "это сделать не удалось т.к. всё празд-",
-        "нование проходило в Москве. Думаю в бу-",
-        "дущем году побывать в Саратове обяза-",
-        "тельно. Там, очевидно, встретимся. Ра-",
-        "боты сейчас много, к тому же учёба в",
-        "академии. Здоровье хорошее. В семье ",
-        "всё нормально. А как у Вас дела? До ",
-        "свидания. Большой привет всему Вашему ",
-        "семейству.",
-        "",
-        "                          С приветом Юрий.",
-        "                                    28.11.62 г.",
-        "",
-        "           Мой адрес: Московская обл.,",
-        "                            пос. Чкаловская,",
-        "                           ул. Циолковского,",
-        "                                дом 4, кв. 57.",
+        "Здравствуйте, Сергей Иванович! На днях", // 1
+        "получил Ваше письмо. Очень ему рад. До", // 2
+        "этого ничего от Вас не получал и был", // 3
+        "этим огорчён. Сам написать не мог т.к.", // 4
+        "не знал точного адреса. Я был в Сарато-", // 5
+        "ве в 1960 году весной, заходили к Кала-", // 6
+        "шникову Виктору, вместе учились в аэро-", // 7
+        "клубе, но он точного адреса  не знал,", // 8
+        "а я хотел к Вам зайти. Зашёл к Мартья-", // 9
+        "нову, но его уже там не было, летом в ", // 10
+        "Куйбышеве. Походил по городу, зашёл к", // 11
+        "себе в техникум и уехал. Весной, в годо-", // 12
+        "вщину полёта хотел быть в Саратове, но ", // 13
+        "это сделать не удалось т.к. всё празд-", // 14
+        "нование проходило в Москве. Думаю в бу-", // 15
+        "дущем году побывать в Саратове обяза-", // 16
+        "тельно. Там, очевидно, встретимся. Ра-", // 17
+        "боты сейчас много, к тому же учёба в", // 18
+        "академии. Здоровье хорошее. В семье ", // 19
+        "всё нормально. А как у Вас дела? До ", // 20
+        "свидания. Большой привет всему Вашему ", // 21
+        "семейству.", // 22
+        "", // 23
+        "                          С приветом Юрий.", // 24
+        "                                    28.11.62 г.", // 25
+        "", // 26
+        "           Мой адрес: Московская обл.,", // 27
+        "                            пос. Чкаловская,", // 28
+        "                           ул. Циолковского,", // 29
+        "                                дом 4, кв. 57.", // 30
         ""};
 
     #endregion
@@ -64,10 +65,12 @@ public class LetterController : MonoBehaviour
             {
                 canvas.ActiveRestart(false);
                 isWork = true;
+                soundController.ContinueSound();
             }
             else
             {
                 canvas.ActiveRestart(true);
+                soundController.PauseSound();
                 /*textBack.text = "";
                 textFront.text = "";
                 number = 0;
@@ -79,6 +82,7 @@ public class LetterController : MonoBehaviour
         {
             canvas.ActiveRestart(false);
             isWork = false;
+            soundController.PauseSound();
         }
     }
 
@@ -89,6 +93,7 @@ public class LetterController : MonoBehaviour
         number = 0;
         currentTime = 0f;
         isWork = true;
+        soundController.StartSound();
     }
 
     #endregion
@@ -111,7 +116,7 @@ public class LetterController : MonoBehaviour
                 canvas.ActiveRestart(false);
                 textBack.text += letter[number];
             }
-            if (currentTime > 1f)
+            if (currentTime > 2.5f)
             {
                 currentTime = 0f;
                 if (number < letter.GetLength(0) - 2)
@@ -139,8 +144,12 @@ public class LetterController : MonoBehaviour
             }
             else
             {
+                if (letter[number] == "")
+                {
+                    currentTime = 2.5f;
+                }
                 currentTime += Time.deltaTime;
-                imageFront.color = new Color(imageFront.color.r, imageFront.color.g, imageFront.color.b, Mathf.Lerp(1, 0, currentTime));
+                imageFront.color = new Color(imageFront.color.r, imageFront.color.g, imageFront.color.b, Mathf.Lerp(1, 0, currentTime / 2.5f));
             }
         }
     }
