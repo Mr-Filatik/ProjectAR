@@ -11,7 +11,9 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private Button btnRestart = null;
     [SerializeField] private Sprite imageRestart = null;
     [SerializeField] private Sprite imageWork = null;
+    [SerializeField] private Sprite imageNoWork = null;
     [SerializeField] private Image imageLogoInpit = null;
+    [SerializeField] private Image imageLogoSGET = null;
 
     #endregion
 
@@ -49,7 +51,8 @@ public class CanvasController : MonoBehaviour
     {
         btnRotate.gameObject.SetActive(false);
         btnRestart.gameObject.SetActive(false);
-        imageLogoInpit.rectTransform.position = new Vector3(Screen.width / 2f, Screen.height - 100f, 0f);
+        imageLogoInpit.rectTransform.position = new Vector3(3f * Screen.width / 4f, Screen.height - 110f, 0f);
+        imageLogoSGET.rectTransform.position = new Vector3(1f * Screen.width / 4f, Screen.height - 110f, 0f);
         (btnRotate.transform as RectTransform).position = new Vector3(250f, 150f, 0f);
         (btnRestart.transform as RectTransform).position = new Vector3(250f, 150f, 0f);
     }

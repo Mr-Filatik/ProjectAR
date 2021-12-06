@@ -71,11 +71,6 @@ public class LetterController : MonoBehaviour
             {
                 canvas.ActiveRestart(true);
                 soundController.PauseSound();
-                /*textBack.text = "";
-                textFront.text = "";
-                number = 0;
-                currentTime = 0f;
-                isWork = true;*/
             }
         }
         else
