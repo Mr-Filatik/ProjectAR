@@ -17,6 +17,7 @@ public class LetterController : MonoBehaviour
 
     #region Private Variables
 
+    private byte soundAndRestart = 2; //0 rest, 1 on, 2 off
     private bool isWork = false;
     private float currentTime = 0f;
     private int number = 0;
@@ -61,15 +62,27 @@ public class LetterController : MonoBehaviour
     {
         if (input)
         {
+            canvas.ActiveRestart(true);
             if (number != letter.GetLength(0) - 1)
             {
-                canvas.ActiveRestart(false);
+                if (soundAndRestart == 1)
+                {
+                    canvas.SetSpriteOn();
+                    soundController.SoundOff();
+                }
+                if (soundAndRestart == 2)
+                {
+                    canvas.SetSpriteOff();
+                    soundController.SoundOn();
+                }
+                //canvas.ActiveRestart(false);
                 isWork = true;
                 soundController.ContinueSound();
             }
             else
             {
-                canvas.ActiveRestart(true);
+                canvas.SetSpriteRestart();
+                //canvas.ActiveRestart(true);
                 soundController.PauseSound();
             }
         }
@@ -83,12 +96,32 @@ public class LetterController : MonoBehaviour
 
     public void Restart()
     {
-        textBack.text = "";
-        textFront.text = "";
-        number = 0;
-        currentTime = 0f;
-        isWork = true;
-        soundController.StartSound();
+        bool flag = true;
+        if (soundAndRestart == 1 && flag)
+        {
+            canvas.SetSpriteOff();
+            soundController.SoundOn();
+            soundAndRestart = 2;
+            flag = false;
+        }
+        if (soundAndRestart == 2 && flag)
+        {
+            canvas.SetSpriteOn();
+            soundController.SoundOff();
+            soundAndRestart = 1;
+            flag = false;
+        }
+        if (soundAndRestart == 0)
+        {
+            textBack.text = "";
+            textFront.text = "";
+            number = 0;
+            currentTime = 0f;
+            isWork = true;
+            soundController.StartSound();
+            soundAndRestart = 2; 
+            canvas.SetSpriteOff();
+        }
     }
 
     #endregion
@@ -100,15 +133,16 @@ public class LetterController : MonoBehaviour
         textBack.text = "";
         textFront.text = "";
         number = 0;
+        soundAndRestart = 2;
     }
 
     private void Update()
     {
         if (isWork)
         {
-            if (textBack.text == "")
+            if (textBack.text == "" && textFront.text == "")
             {
-                canvas.ActiveRestart(false);
+                //canvas.ActiveRestart(false);
                 textBack.text += letter[number];
             }
             if (currentTime > 2.5f)
@@ -131,9 +165,15 @@ public class LetterController : MonoBehaviour
                 }
                 else
                 {
-                    textBack.text = "";
-                    textFront.text += letter[number] + "\n";
-                    canvas.ActiveRestart(true);
+                    if (number == letter.GetLength(0) - 2)
+                    {
+                        textBack.text = "";
+                        textFront.text += letter[number] + "\n";
+                        number++;
+                    }
+                    //canvas.ActiveRestart(true);
+                    soundAndRestart = 0;
+                    canvas.SetSpriteRestart();
                     isWork = false;
                 }
             }

@@ -43,6 +43,24 @@ public class CanvasController : MonoBehaviour
         }
     }
 
+    public void SetSpriteOn()
+    {
+        btnRestart.image.sprite = imageWork;
+        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f, 200f);
+    }
+
+    public void SetSpriteOff()
+    {
+        btnRestart.image.sprite = imageNoWork;
+        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f, 200f);
+    }
+
+    public void SetSpriteRestart()
+    {
+        btnRestart.image.sprite = imageRestart;
+        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f, 256f);
+    }
+
     #endregion
 
     #region Private Methods
