@@ -46,19 +46,19 @@ public class CanvasController : MonoBehaviour
     public void SetSpriteOn()
     {
         btnRestart.image.sprite = imageWork;
-        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f, 200f);
+        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f * 0.7f, 200f * 0.7f);
     }
 
     public void SetSpriteOff()
     {
         btnRestart.image.sprite = imageNoWork;
-        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f, 200f);
+        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f * 0.7f, 200f * 0.7f);
     }
 
     public void SetSpriteRestart()
     {
         btnRestart.image.sprite = imageRestart;
-        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f, 256f);
+        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f * 0.7f, 256f * 0.7f);
     }
 
     #endregion
@@ -71,8 +71,8 @@ public class CanvasController : MonoBehaviour
         btnRestart.gameObject.SetActive(false);
         imageLogoInpit.rectTransform.position = new Vector3(3f * Screen.width / 4f, Screen.height - 110f, 0f);
         imageLogoSGET.rectTransform.position = new Vector3(1f * Screen.width / 4f, Screen.height - 110f, 0f);
-        (btnRotate.transform as RectTransform).position = new Vector3(250f, 150f, 0f);
-        (btnRestart.transform as RectTransform).position = new Vector3(250f, 150f, 0f);
+        (btnRotate.transform as RectTransform).position = new Vector3(Screen.width / 4f, 110f, 0f);
+        (btnRestart.transform as RectTransform).position = new Vector3(Screen.width / 4f, 110f, 0f);
     }
 
     #endregion

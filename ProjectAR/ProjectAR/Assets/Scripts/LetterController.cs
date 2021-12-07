@@ -67,12 +67,12 @@ public class LetterController : MonoBehaviour
             {
                 if (soundAndRestart == 1)
                 {
-                    canvas.SetSpriteOn();
+                    canvas.SetSpriteOff(); //
                     soundController.SoundOff();
                 }
                 if (soundAndRestart == 2)
                 {
-                    canvas.SetSpriteOff();
+                    canvas.SetSpriteOn(); //
                     soundController.SoundOn();
                 }
                 //canvas.ActiveRestart(false);
@@ -99,14 +99,14 @@ public class LetterController : MonoBehaviour
         bool flag = true;
         if (soundAndRestart == 1 && flag)
         {
-            canvas.SetSpriteOff();
+            canvas.SetSpriteOn(); //
             soundController.SoundOn();
             soundAndRestart = 2;
             flag = false;
         }
         if (soundAndRestart == 2 && flag)
         {
-            canvas.SetSpriteOn();
+            canvas.SetSpriteOff(); //
             soundController.SoundOff();
             soundAndRestart = 1;
             flag = false;
@@ -120,7 +120,7 @@ public class LetterController : MonoBehaviour
             isWork = true;
             soundController.StartSound();
             soundAndRestart = 2; 
-            canvas.SetSpriteOff();
+            canvas.SetSpriteOn(); //
         }
     }
 
