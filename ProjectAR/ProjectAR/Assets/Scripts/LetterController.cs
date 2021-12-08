@@ -146,7 +146,7 @@ public class LetterController : MonoBehaviour
                 //canvas.ActiveRestart(false);
                 textBack.text += letter[number];
             }
-            if (currentTime > 2.5f)
+            if (currentTime > 2.6f)
             {
                 currentTime = 0f;
                 if (number < letter.GetLength(0) - 2)
