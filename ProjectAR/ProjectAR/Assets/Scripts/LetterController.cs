@@ -22,6 +22,7 @@ public class LetterController : MonoBehaviour
     private byte soundAndRestart = 2; //0 rest, 1 on, 2 off
     private bool isWork = false;
     private float currentTime = 0f;
+    private float pauseTime = 2.63f;
     private int number = 0;
     private string[] letter = new string[] {
         "Здравствуйте, Сергей Иванович!",
@@ -48,12 +49,12 @@ public class LetterController : MonoBehaviour
         "шему семейству.",
         "       С приветом Юрий.",
         "            28.11.62 г.",
-        "",
+        " ",
         "           Мой адрес: Московская обл.,",
         "                            пос. Чкаловская,",
         "                           ул. Циолковского,",
         "                                дом 4, кв. 57.",
-        ""};
+        " "};
 
     #endregion
 
@@ -146,7 +147,7 @@ public class LetterController : MonoBehaviour
                 //canvas.ActiveRestart(false);
                 textBack.text += letter[number];
             }
-            if (currentTime > 2.6f)
+            if (currentTime > pauseTime)
             {
                 currentTime = 0f;
                 if (number < letter.GetLength(0) - 2)
@@ -180,12 +181,12 @@ public class LetterController : MonoBehaviour
             }
             else
             {
-                if (letter[number] == "")
+                if (letter[number] == " ")
                 {
-                    currentTime = 2.5f;
+                    currentTime = pauseTime;
                 }
                 currentTime += Time.deltaTime;
-                imageFront.color = new Color(imageFront.color.r, imageFront.color.g, imageFront.color.b, Mathf.Lerp(1, 0, currentTime / 2.5f));
+                imageFront.color = new Color(imageFront.color.r, imageFront.color.g, imageFront.color.b, Mathf.Lerp(1, 0, currentTime / pauseTime));
             }
         }
     }
