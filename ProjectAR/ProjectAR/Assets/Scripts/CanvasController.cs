@@ -47,18 +47,21 @@ public class CanvasController : MonoBehaviour
     {
         btnRestart.image.sprite = imageWork;
         (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f * 0.7f, 200f * 0.7f);
+        (btnRestart.transform as RectTransform).position = new Vector3(1f * Screen.width / 16f + 256f * 0.7f /2f, 110f, 0f);
     }
 
     public void SetSpriteOff()
     {
         btnRestart.image.sprite = imageNoWork;
         (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f * 0.7f, 200f * 0.7f);
+        (btnRestart.transform as RectTransform).position = new Vector3(1f * Screen.width / 16f + 256f * 0.7f / 2f, 110f, 0f);
     }
 
     public void SetSpriteRestart()
     {
         btnRestart.image.sprite = imageRestart;
         (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f * 0.7f, 256f * 0.7f);
+        (btnRestart.transform as RectTransform).position = new Vector3(1f * Screen.width / 16f + 256f * 0.7f / 2f, 110f, 0f);
     }
 
     #endregion
@@ -69,10 +72,14 @@ public class CanvasController : MonoBehaviour
     {
         btnRotate.gameObject.SetActive(false);
         btnRestart.gameObject.SetActive(false);
-        imageLogoInpit.rectTransform.position = new Vector3(3f * Screen.width / 4f, Screen.height - 110f, 0f);
-        imageLogoSGET.rectTransform.position = new Vector3(1f * Screen.width / 4f, Screen.height - 110f, 0f);
-        (btnRotate.transform as RectTransform).position = new Vector3(Screen.width / 4f, 110f, 0f);
-        (btnRestart.transform as RectTransform).position = new Vector3(Screen.width / 4f, 110f, 0f);
+        imageLogoInpit.rectTransform.position = new Vector3(15f * Screen.width / 16f - 307.6f / 2f, Screen.height - 110f, 0f);
+        imageLogoSGET.rectTransform.position = new Vector3(1f * Screen.width / 16f + 300f / 2f, Screen.height - 110f, 0f);
+
+        (btnRotate.transform as RectTransform).position = new Vector3(1f * Screen.width / 16f + 232.61f / 2f, 110f, 0f);
+
+        btnRestart.image.sprite = imageRestart;
+        (btnRestart.transform as RectTransform).sizeDelta = new Vector2(256f * 0.7f, 256f * 0.7f);
+        (btnRestart.transform as RectTransform).position = new Vector3(1f * Screen.width / 16f + 256f * 0.7f / 2f, 110f, 0f);
     }
 
     #endregion
